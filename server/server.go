@@ -65,6 +65,13 @@ func (apiServer *ApiServer) GetAll(c *gin.Context) {
 		poolId = KorelliaPoolMap[namespace]
 	}
 
+	if poolId == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "namespace is not supported yet; please contact the KYVE team",
+		})
+		return
+	}
+
 	height, err := strconv.Atoi(heightStr)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
