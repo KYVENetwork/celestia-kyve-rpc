@@ -12,7 +12,7 @@ var (
 
 var (
 	chainId      string
-	port         int64
+	port         string
 	restEndpoint string
 	storageRest  string
 )

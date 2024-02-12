@@ -28,7 +28,7 @@ var (
 	KorelliaPoolMap = make(map[string]int64)
 )
 
-func StartApiServer(chainId, restEndpoint, storageRest string, port int64) *ApiServer {
+func StartApiServer(chainId, restEndpoint, storageRest string, port string) *ApiServer {
 	apiServer := &ApiServer{
 		chainId:      chainId,
 		restEndpoint: restEndpoint,
@@ -40,7 +40,7 @@ func StartApiServer(chainId, restEndpoint, storageRest string, port int64) *ApiS
 
 	r.GET("/GetAll", apiServer.GetAll)
 
-	if err := r.Run(fmt.Sprintf(":%d", port)); err != nil {
+	if err := r.Run(fmt.Sprintf(":%v", port)); err != nil {
 		logger.Error().Str("err", err.Error()).Msg("failed to run api server")
 	}
 
