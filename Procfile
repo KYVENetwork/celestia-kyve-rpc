@@ -1,1 +1,1 @@
-web: go run cmd/celestia-kyve-rpc/main.go start --chain-id korellia-2
+web: ./bin/celestia-kyve-rpc start --chain-id korellia-2
